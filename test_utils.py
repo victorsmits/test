@@ -7,9 +7,9 @@ import utils
 
 class TestUtils(unittest.TestCase):
     def test_fact(self):
-        # À compléter...
-        pass
-    
+      self.assertEqual(fact(3),6)    
+      self.assertEqual(fact(2),1)
+      pass
     def test_roots(self):
         # À compléter...
         pass
