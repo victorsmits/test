@@ -5,15 +5,8 @@
 
 import math 
 from collections import namedtuple
-import scipy.integrate as integrate
 
 def fact(n):
-    """Computes the factorial of a natural number.
-    
-    Pre: -
-    Post: Returns the factorial of 'n'.
-    Throws: ValueError if n < 0
-    """
     if n<0:
         raise(ValueError)
     if n<2:
@@ -22,45 +15,40 @@ def fact(n):
         return n*fact(n-1)
     
 def roots(a, b, c):
-    """Computes the roots of the ax^2 + bx + c = 0 polynomial.
-    
-    Pre: -
-    Post: Returns a tuple with zero, one or two elements corresponding
-    to the roots of the ax^2 + bx + c polynomial.
-    """
-
-    result = namedtuple("result",['x1','x2'])
     delta = (b ** 2) - (4 * a * c)
 
     if a == 0:
         print("veuilliez donner une equaiton du second degré")
 
     if delta < 0:
-        return result("","")
+        return ("","")
 
     if delta > 0:
         x1 = float((- b - math.sqrt(delta)) / (2*a))
         x2 = float((- b + math.sqrt(delta)) / (2*a))
 
-        return result("{}","{}".format(x1, x2))
+        return ("{}","{}".format(x1, x2))
 
     if delta == 0:
         x1 = (-b - math.sqrt(delta)/(2*a))
-        return result("{}".format(x1))
+        return ("{}".format(x1))
+
+def ff(x):
+    return x
+def gg(x):
+    return x*2
 
 def integrate(function, lower, upper):
-    """Approximates the integral of a fonction between two bounds
-    
-    Pre: 'function' is a valid Python expression with x as a variable,
-         'lower' <= 'upper',
-         'function' continuous and integrable between 'lower‘ and 'upper'.
-    Post: Returns an approximation of the integral from 'lower' to 'upper'
-          of the specified 'function'.
-    """
-
-
+    a = lower
+    b = upper
+    n = 100000  #nbr de pas
+    h = (b - a) / n
+    result = 0
+    for i in range(0,n-1):
+        result += h * function(a + h*i)
+    return result
 
 if __name__ == '__main__':
     print(fact(5))
-    print(roots(3, 3, 0))
-    print(integrate('x ** 2 - 1', -1, 1))
+    print(roots(2, 2, 0))
+    print(integrate(ff, 0, 1))

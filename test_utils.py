@@ -3,21 +3,20 @@
 # Version: February 8, 2018
 
 import unittest
-import utils
-
+from utils import *
 class TestUtils(unittest.TestCase):
     def test_fact(self):
       self.assertEqual(fact(3),6)    
-      self.assertEqual(fact(2),1)
+      self.assertEqual(fact(2),2)
       pass
     def test_roots(self):
-        self.assertEqual(roots(1,0,1),result(x1="", x2=""))
-        self.assertEqual(roots(2,2,2),)
-        # À compléter...
+        self.assertEqual(roots(3,3,0),('{}', '-1.0'))
+        self.assertEqual(roots(2,2,2),('',''))
         pass
     
     def test_integrate(self):
-        # À compléter...
+        self.assertEqual(integrate(ff,0,1), 0.49998500010000024)
+        self.assertEqual(integrate(gg,0,1), 0.9999700002000005)
         pass
 
 if __name__ == '__main__':
