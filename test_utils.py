@@ -11,6 +11,8 @@ class TestUtils(unittest.TestCase):
       self.assertEqual(fact(2),1)
       pass
     def test_roots(self):
+        self.assertEqual(roots(1,0,1),result(x1="", x2=""))
+        self.assertEqual(roots(2,2,2),)
         # À compléter...
         pass
     
