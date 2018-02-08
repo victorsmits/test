@@ -8,7 +8,7 @@ from collections import namedtuple
 
 def fact(n):
     if n<0:
-        raise(ValueError)
+        raise ValueError
     if n<2:
         return 1
     else:
