@@ -27,7 +27,7 @@ def roots(a, b, c):
         x1 = float((- b - math.sqrt(delta)) / (2*a))
         x2 = float((- b + math.sqrt(delta)) / (2*a))
 
-        return ("{}","{}".format(x1, x2))
+        return (x1,x2)
 
     if delta == 0:
         x1 = (-b - math.sqrt(delta)/(2*a))
